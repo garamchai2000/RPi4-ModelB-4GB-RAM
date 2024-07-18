@@ -20,7 +20,7 @@ After getting Raspberry Pi OS (Legacy, 64-bit) Lite image (with ssh enabled and 
     sudo systemctl start NetworkManager
     nmcli device show eth0
     sudo nmtui edit “Wired connection 1” # Pi / Gateway / Router IP Address are set here, renamed "Wired connection 1" to "Wired_connection_1" (spaces in the name were an issue)
-    sudo shutdown -h reboot # if that doesn't work, try: sudo shutdown -r now
+    sudo shutdown -r now
     ```
 
 4) Installed Docker and Portainer (I'll be using Portainer web UI to manage Docker containers):
