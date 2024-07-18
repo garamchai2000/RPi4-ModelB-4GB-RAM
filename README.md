@@ -22,7 +22,7 @@ After getting Raspberry Pi OS (Legacy, 64-bit) Lite image (with ssh enabled and 
     sudo nmtui edit “Wired connection 1” # Pi / Gateway / Router IP Address are set here, renamed "Wired connection 1" to "Wired_connection_1" (spaces in the name were an issue)
     sudo shutdown -r now
     ```
-5) logged into Pi from a terminal on my Mac:
+5) logged back into Pi from a terminal on my Mac:
 
     ```
     ssh rpi44gb@192.168.1.64
