@@ -22,8 +22,14 @@ After getting Raspberry Pi OS (Legacy, 64-bit) Lite image (with ssh enabled and 
     sudo nmtui edit “Wired connection 1” # Pi / Gateway / Router IP Address are set here, renamed "Wired connection 1" to "Wired_connection_1" (spaces in the name were an issue)
     sudo shutdown -r now
     ```
+5) logged into Pi from a terminal on my Mac:
 
-4) Installed Docker and Portainer (I'll be using Portainer web UI to manage Docker containers):
+    ```
+    ssh rpi44gb@192.168.1.64
+    mkdir -p ~/adguardhome/conf ~/adguardhome/work
+    ```
+
+6) Installed Docker and Portainer (I'll be using Portainer web UI to manage Docker containers):
     ```
     curl -sSL https://get.docker.com | sh
     docker version
@@ -33,9 +39,9 @@ After getting Raspberry Pi OS (Legacy, 64-bit) Lite image (with ssh enabled and 
     sudo docker run -d -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:linux-arm64
     ```
 
-5) With [docker-compose.yaml](docker-compose.yaml) loaded as stack in Portainer and environment variables from [rpi44gb.env](rpi44gb.env), I now have Docker / Portainer / AdGuard Home running on my Pi
+7) With [docker-compose.yaml](docker-compose.yaml) loaded as stack in Portainer and environment variables from [rpi44gb.env](rpi44gb.env), I now have Docker / Portainer / AdGuard Home running on my Pi
 
-6) Portainer can be upgraded later when there is a newer version:
+9) Portainer can be upgraded later when there is a newer version:
     ```
     sudo docker stop portainer && sudo docker rm portainer && sudo docker pull portainer/portainer-ce:linux-arm64 && sudo docker run -d -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:linux-arm64
     ```
