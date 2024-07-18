@@ -38,10 +38,13 @@ After getting Raspberry Pi OS (Legacy, 64-bit) Lite image (with ssh enabled and 
     sudo docker pull portainer/portainer-ce:linux-arm64
     sudo docker run -d -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:linux-arm64
     ```
+7) Accessed Portainer admin page via web browser (at 192.168.1.64:9000) for setup.
 
-7) With [docker-compose.yaml](docker-compose.yaml) loaded as stack in Portainer and environment variables from [rpi44gb.env](rpi44gb.env), I now have Docker / Portainer / AdGuard Home running on my Pi
+8) With [docker-compose.yaml](docker-compose.yaml) loaded as stack in Portainer and environment variables from [rpi44gb.env](rpi44gb.env), I now have Docker / Portainer / AdGuard Home running on my Pi
 
-9) Portainer can be upgraded later when there is a newer version:
+9) Accesessed AdGuard Home initial admin page at (at 192.168.1.64:3000) for setup. After initial setup, AdGuard Home can later be administered from 192.168.1.64:3001
+
+10) Portainer can be upgraded later when there is a newer version:
     ```
     sudo docker stop portainer && sudo docker rm portainer && sudo docker pull portainer/portainer-ce:linux-arm64 && sudo docker run -d -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:linux-arm64
     ```
