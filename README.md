@@ -52,7 +52,7 @@ After getting Raspberry Pi OS (Legacy, 64-bit) Lite image (with ssh enabled and 
     ```
 # Upgrade Raspberry Pi OS from Bookworm to Trixie
 
-1) Optional: login to Rrasperry Pi and shutdown. Remove the microSD card and clone it (using Clonezilla or some other tool) to another microSD card, just in case the upgrade doesn't end successfully. Insert the microSD card. Power on Raspberry Pi.
+1) Optional: login to Rrasperry Pi and shutdown. Remove the microSD card and clone it (using Clonezilla or some other tool) to another microSD card, just in case the upgrade doesn't end successfully. Once cloning is succesfully completed, insert the microSD card back into Raspberry Pi. Power on Raspberry Pi.
 2) login to Rasperry Pi
 3) Replace all references to bookworm with trixie (sudo vi /etc/apt/sources.list and sudo vi /etc/apt/sources.list.d/*.list)
 4) update package list
