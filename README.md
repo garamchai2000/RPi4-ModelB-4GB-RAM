@@ -50,3 +50,13 @@ After getting Raspberry Pi OS (Legacy, 64-bit) Lite image (with ssh enabled and 
     ```
     sudo docker stop portainer && sudo docker rm portainer && sudo docker pull portainer/portainer-ce:linux-arm64 && sudo docker run -d -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:linux-arm64
     ```
+# Upgrade Raspberry Pi OS from Bookwork to Trixie
+
+1) Optional: login to Rrasperry Pi and shutdown. Remove the microSD card and clone it (using Clonezilla or some other tool) to another microSD card, just in case the upgrade doesn't end successfully. Insert the microSD card. Power on Raspberry Pi.
+2) login to Rasperry Pi
+3) Replace all references to bookworm with trixie (sudo vi /etc/apt/sources.list and sudo vi /etc/apt/sources.list.d/*.list)
+4) ```sudo apt update```
+5) ```sudo apt full-upgrade -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confnew" --purge --auto-remove```
+6) ```sudo docker stop portainer && sudo docker rm portainer && sudo docker pull portainer/portainer-ce:latest && sudo docker run -d -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest```
+7) ```lsb_release -c```
+8) ```sudo shutdown -r now```
