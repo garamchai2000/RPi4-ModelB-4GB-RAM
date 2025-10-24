@@ -52,26 +52,27 @@ After getting Raspberry Pi OS (Legacy, 64-bit) Lite image (with ssh enabled and 
     ```
 # Upgrade Raspberry Pi OS from Bookworm to Trixie
 
-1) Optional: login to Rrasperry Pi and shutdown. Remove the microSD card and clone it (using Clonezilla or some other tool) to another microSD card, just in case the upgrade doesn't end successfully. Once cloning is succesfully completed, insert the microSD card back into Raspberry Pi. Power on Raspberry Pi.
+1) Optional (because you can always start afresh if upgrade fails but I prefer a backup): login to Rrasperry Pi and shutdown. Remove the microSD card and clone it (using Clonezilla or some other tool) to another microSD card, just in case the upgrade doesn't end successfully. Once cloning is succesfully completed, insert the microSD card back into Raspberry Pi. Power on Raspberry Pi.
 2) login to Rasperry Pi
 3) Replace all references to bookworm with trixie (sudo vi /etc/apt/sources.list and sudo vi /etc/apt/sources.list.d/*.list)
 4) update package list
    ```
    sudo apt update
    ```
-6) upgrade packages
+5) upgrade packages
    ```
    sudo apt full-upgrade -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confnew" --purge --auto-remove
    ```
-8) upgrade Portainer to the latest version
+6) upgrade Portainer to the latest version
    ```
    sudo docker stop portainer && sudo docker rm portainer && sudo docker pull portainer/portainer-ce:latest && sudo docker run -d -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest
    ```
-10) check the latest verision of OS upgraded to
+7) check the latest verision of OS upgraded to
     ```
     lsb_release -c
     ```
-12) for good measure!
+8) for good measure!
     ```
     sudo shutdown -r now
     ```
+9) test all services have come back up. If you're only using Docker, load up Portainer to see the containers are up and running. If AdGuard Home is blocking ads like before the upgrade, it is a confirmation all is well.
