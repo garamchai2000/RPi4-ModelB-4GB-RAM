@@ -63,14 +63,14 @@ After getting Raspberry Pi OS (Legacy, 64-bit) Lite image (with ssh enabled and 
    ```
    sudo apt full-upgrade -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confnew" --purge --auto-remove
    ```
-6) upgrade Portainer to the latest version
-   ```
-   sudo docker stop portainer && sudo docker rm portainer && sudo docker pull portainer/portainer-ce:latest && sudo docker run -d -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest
-   ```
-7) check the latest verision of OS upgraded to
+6) check the latest verision of OS upgraded to
     ```
     lsb_release -c
     ```
+7) upgrade Portainer to the latest version
+   ```
+   sudo docker stop portainer && sudo docker rm portainer && sudo docker pull portainer/portainer-ce:latest && sudo docker run -d -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest
+   ```
 8) for good measure!
     ```
     sudo shutdown -r now
